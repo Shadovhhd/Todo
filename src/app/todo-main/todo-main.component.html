@@ -1,0 +1,26 @@
+
+
+  <div class="inner">
+      <div class="inner_item">
+        <p>
+            Todo works!
+          </p>
+          <p>todos works!</p>
+          <form>
+            <!-- <input type="text" #addTodoInput />
+            <button (click)="addTodo($event, addTodoInput.value)">Add todo</button> -->
+            <input type="text" [(ngModel)]="newTodoTitle" name="todoTitle" />
+            <button (click)="addTodo($event)" >Add todo</button>
+          </form>
+          <h3>{{ newTodoTitle }}</h3>
+          <ul>
+            <li *ngFor="let todo of todos">
+              <a [routerLink]=" todo.userId "> {{ todo.title }}</a>
+              <input type="checkbox" [checked]="todo.completed" />
+              <button on-click="deleteTodo(todo.id)" >X</button>
+            </li>
+          </ul>
+          
+      </div>
+      <div class="inner_item"><router-outlet></router-outlet></div>
+  </div>
